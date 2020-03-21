@@ -12,10 +12,10 @@
         <GroupBox Header="RSS Feed:">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="120" />
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="textBoxFeedUrl">http://www.microsoft.com/feeds/msdn/en-us/rss.xml</TextBox>
+                <TextBox x:Name="textBoxFeedUrl">http://www.zhihu.com/rss</TextBox>
                 <Button Grid.Column="1" x:Name="buttonUpdateFeed" Click="ButtonUpdateFeed_Click">Load RSS Feed</Button>
             </Grid>
         </GroupBox>

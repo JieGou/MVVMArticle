@@ -23,7 +23,14 @@ namespace RssModel
             var rssDoc = new XmlDocument();
             using (var rssReader = new XmlTextReader(source.AbsoluteUri))
             {
-                rssDoc.Load(rssReader);
+                try
+                {
+                    rssDoc.Load(rssReader);
+                }
+                catch
+                {
+                    return null;
+                }
             }
 
             XmlNode rssNode = null;
