@@ -33,8 +33,8 @@ namespace RSSWindowsForms
             this.buttonUpdateFeed = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.feedControl = new RSSWindowsForms.FeedControl();
             this.webBrowserFeedDetails = new System.Windows.Forms.WebBrowser();
+            this.feedControl = new RSSWindowsForms.FeedControl();
             this.groupBox1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -43,13 +43,13 @@ namespace RSSWindowsForms
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.buttonUpdateFeed);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(658, 40);
+            this.groupBox1.Size = new System.Drawing.Size(658, 37);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "RSS Feed:";
@@ -57,9 +57,9 @@ namespace RSSWindowsForms
             // buttonUpdateFeed
             // 
             this.buttonUpdateFeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdateFeed.Location = new System.Drawing.Point(456, 10);
+            this.buttonUpdateFeed.Location = new System.Drawing.Point(456, 9);
             this.buttonUpdateFeed.Name = "buttonUpdateFeed";
-            this.buttonUpdateFeed.Size = new System.Drawing.Size(196, 23);
+            this.buttonUpdateFeed.Size = new System.Drawing.Size(196, 21);
             this.buttonUpdateFeed.TabIndex = 1;
             this.buttonUpdateFeed.Text = "Load RSS Feed";
             this.buttonUpdateFeed.UseVisualStyleBackColor = true;
@@ -67,20 +67,20 @@ namespace RSSWindowsForms
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(7, 13);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(7, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(443, 20);
+            this.textBox1.Size = new System.Drawing.Size(443, 21);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "http://www.microsoft.com/feeds/msdn/en-us/rss.xml";
+            this.textBox1.Text = "http://www.zhihu.com/rss";
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 46);
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 42);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -91,9 +91,18 @@ namespace RSSWindowsForms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.webBrowserFeedDetails);
-            this.splitContainer1.Size = new System.Drawing.Size(658, 721);
-            this.splitContainer1.SplitterDistance = 360;
+            this.splitContainer1.Size = new System.Drawing.Size(658, 666);
+            this.splitContainer1.SplitterDistance = 332;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // webBrowserFeedDetails
+            // 
+            this.webBrowserFeedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserFeedDetails.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserFeedDetails.MinimumSize = new System.Drawing.Size(20, 18);
+            this.webBrowserFeedDetails.Name = "webBrowserFeedDetails";
+            this.webBrowserFeedDetails.Size = new System.Drawing.Size(658, 330);
+            this.webBrowserFeedDetails.TabIndex = 0;
             // 
             // feedControl
             // 
@@ -101,27 +110,18 @@ namespace RSSWindowsForms
             this.feedControl.Feed = null;
             this.feedControl.Location = new System.Drawing.Point(0, 0);
             this.feedControl.Name = "feedControl";
-            this.feedControl.Size = new System.Drawing.Size(658, 360);
+            this.feedControl.Size = new System.Drawing.Size(658, 332);
             this.feedControl.TabIndex = 0;
             this.feedControl.UriChanged += new System.EventHandler<RSSWindowsForms.UriChangedEventArgs>(this.FeedControl_UriChanged);
             // 
-            // webBrowserFeedDetails
+            // RssForm
             // 
-            this.webBrowserFeedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowserFeedDetails.Location = new System.Drawing.Point(0, 0);
-            this.webBrowserFeedDetails.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowserFeedDetails.Name = "webBrowserFeedDetails";
-            this.webBrowserFeedDetails.Size = new System.Drawing.Size(658, 357);
-            this.webBrowserFeedDetails.TabIndex = 0;
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 770);
+            this.ClientSize = new System.Drawing.Size(658, 691);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "RssForm";
             this.Text = "RSS Feed Reader";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
