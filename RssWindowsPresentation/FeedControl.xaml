@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="RssWindowsPresentation.FeedControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" MinHeight="250" MinWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Feed Information:" Grid.Row="0" Name="groupBox1">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="* "/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" >Title:</Label>
+                <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" >Link:</Label>
+                <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" >Description:</Label>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="textBoxTitle" />
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="textBoxLink" />
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="textBoxDescription" />
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="1" Name="grid1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GridSplitter Margin="228,0,0,0" Name="gridSplitter1" HorizontalAlignment="Left" Width="0" />
+            <GroupBox Grid.Column="0" Header="Select a Feed Item:">
+                <ScrollViewer MaxHeight="250">
+               <ListBox x:Name="listBoxFeeds" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBoxFeeds_SelectionChanged" />
+               </ScrollViewer>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Header="Selected Item Information:">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" MinHeight="26" />
+                        <RowDefinition Height="Auto" MinHeight="26" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="73" />
+                        <ColumnDefinition Width="* "/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" >Title:</Label>
+                    <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" >Link:</Label>
+                    <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" >Description:</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="textBoxItemTitle" />
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="textBoxItemLink" Height="26" Margin="0,0,68,0" VerticalAlignment="Top" />
+                    <Button Grid.Row="1" Grid.Column="1" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Width="60" Click="ButtonOpenLink_Click">Open</Button>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="textBoxItemDescription" TextWrapping="Wrap" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="RssMVVM.Views.FeedControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:RssMVVM="clr-namespace:RssMVVM"
+    xmlns:model="clr-namespace:RssModel;assembly=RssModel"
+    MinHeight="250" MinWidth="500"
+    >
+    <UserControl.Resources>
+        <RssMVVM:StringToUriConverter x:Key="StringToUriConverter" />
+            <DataTemplate DataType="{x:Type model:FeedItem}">
+                <TextBlock Text="{Binding Path=Title}" />
+            </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Feed Information:" Grid.Row="0">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="* "/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" >Title:</Label>
+                <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" >Link:</Label>
+                <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" >Description:</Label>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Feed.Title, Mode=OneWay}" />
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Feed.Link, Mode=OneWay, Converter={StaticResource StringToUriConverter}}" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Feed.Description, Mode=OneWay}"/>
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GridSplitter Margin="228,0,0,0" HorizontalAlignment="Left" Width="0" />
+            <GroupBox Grid.Column="0" Header="Select a Feed Item:">
+                <ScrollViewer MaxHeight="250">
+                    <ListView Name="listView" SelectedItem="{Binding SelectedFeedItem}" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding Path=Feed.Items, Mode=OneWay}" SelectionMode="Single" />
+                </ScrollViewer>
+            </GroupBox>
+            <GroupBox Grid.Column="1" Header="Selected Item Information:">
+                <Grid>
+                    <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="* "/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" >Title:</Label>
+                    <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" >Link:</Label>
+                    <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" >Description:</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=listView, Path=SelectedItem.Title, Mode=OneWay}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=listView, Path=SelectedItem.Link, Mode=OneWay, Converter={StaticResource StringToUriConverter}}" Margin="0,0,68,0" />
+                    <Button Grid.Row="1" Grid.Column="1" Height="23" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Width="60" Command="{Binding OpenFeedCommand}">Open</Button>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=listView, Path=SelectedItem.Description, Mode=OneWay}" SnapsToDevicePixels="True" TextWrapping="Wrap" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</UserControl>

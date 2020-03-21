@@ -1,0 +1,12 @@
+﻿<Application x:Class="RssMVVM.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Views="clr-namespace:RssMVVM.Views"
+    xmlns:ViewModels="clr-namespace:RssMVVM.ViewModels"
+    StartupUri="Views\MainView.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type ViewModels:FeedViewModel}">
+            <Views:FeedControl />
+        </DataTemplate>
+    </Application.Resources>
+</Application>
